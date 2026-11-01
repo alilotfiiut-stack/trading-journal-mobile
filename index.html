@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ژورنال معاملاتی</title>
-<meta name="theme-color" content="#16845b">
+<meta name="theme-color" content="#737d86">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -14,18 +14,19 @@
 
 <style>
 @font-face{font-family:BNazanin;src:local("B Nazanin"),local("BNazanin"),local("B Nazanin")} 
-:root{--bg:#f3f8f5;--panel:#ffffff;--panel2:#e7f1eb;--line:#cbded2;--text:#20382d;--muted:#657b6d;--green:#16845b;--red:#c94b5b;--blue:#167b59;--amber:#9b711d;--radius:16px}
+:root{--bg:#f1f2f3;--panel:#ffffff;--panel2:#e8eaec;--line:#d4d8dc;--text:#343a40;--muted:#737c84;--green:#39845d;--red:#c94b5b;--blue:#737d86;--amber:#9b711d;--radius:16px}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:BNazanin,Tahoma,Arial,sans-serif;font-size:17px;line-height:1.7}
-button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:9px 15px;background:var(--blue);color:#071322;font-weight:bold}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:9px 15px;background:var(--blue);color:#ffffff;font-weight:bold}
 button.secondary{background:#e8edf4;color:#34445a;border:1px solid var(--line)}button.danger{background:#fde8eb;color:#a9273d;border:1px solid #efb8c1}button.good{background:#dff5ec;color:#126746}
-header{padding:22px max(18px,calc((100vw - 1200px)/2));background:linear-gradient(120deg,#ffffff,#e4f1e9);border-bottom:1px solid var(--line)}
+header{padding:22px max(18px,calc((100vw - 1200px)/2));background:linear-gradient(120deg,#ffffff,#e9ebed);border-bottom:1px solid var(--line)}
 header h1{margin:0;font-size:30px}header p{margin:3px 0 0;color:var(--muted)}
 .wrap{max-width:1200px;margin:auto;padding:18px}
-.nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}.nav button{background:var(--panel2);color:var(--muted);border:1px solid var(--line)}.nav button.active{background:#d7eee1;color:#145b3c;border-color:#91c9a9}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}.nav button{background:var(--panel2);color:var(--muted);border:1px solid var(--line)}.nav button.active{background:#dce0e3;color:#414950;border-color:#b9c0c6}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:16px}
 h2{font-size:23px;margin:0 0 14px}h3{font-size:19px;margin:15px 0 8px;color:#344d6b}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
-.field{display:flex;flex-direction:column;gap:4px}.field label{font-size:15px;color:#c1cee0}.field input,.field select,.field textarea{width:100%;background:#ffffff;border:1px solid #cbd5e1;color:#243247;border-radius:10px;padding:9px 11px;min-width:0}.field textarea{min-height:75px;resize:vertical}
+.field{display:flex;flex-direction:column;gap:4px}.field label{font-size:15px;color:#737c84}.field input,.field select,.field textarea{width:100%;background:#ffffff;border:1px solid #cbd5e1;color:#243247;border-radius:10px;padding:9px 11px;min-width:0}.field textarea{min-height:75px;resize:vertical}
+.date-input-wrap{display:flex;gap:6px;align-items:center;width:100%;position:relative}.date-input-wrap input{flex:1;min-width:0}.date-open-btn{flex:0 0 42px;width:42px;height:42px;padding:0;border:1px solid var(--line);background:#e8eaec;color:#535d66;border-radius:10px;font-size:21px;line-height:1}.jalali-calendar{position:fixed;z-index:1000;width:min(320px,calc(100vw - 24px));padding:12px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 36px #30384024;color:var(--text);direction:rtl}.jalali-cal-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}.jalali-cal-head strong{font-size:16px}.jalali-cal-nav{width:34px;height:34px;padding:0;background:#e8eaec;color:#535d66}.jalali-cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;text-align:center}.jalali-cal-week{font-size:12px;color:var(--muted);padding:4px 0}.jalali-cal-day{padding:7px 0;border-radius:8px;background:#f2f3f4;color:var(--text);font-weight:normal}.jalali-cal-day:hover{background:#e1e4e7}.jalali-cal-day.selected{background:#737d86;color:#fff}.jalali-cal-day.today{outline:1px solid #737d86}.jalali-cal-day:disabled{background:transparent;color:#c5cec8;cursor:default}.jalali-cal-foot{display:flex;justify-content:space-between;margin-top:10px}.jalali-cal-foot button{padding:6px 10px;font-size:13px}
 .help{font-size:13px;color:var(--muted)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}.stat{background:var(--panel);border:1px solid var(--line);padding:15px;border-radius:14px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:25px;margin-top:4px;direction:ltr;text-align:right}
 .hidden{display:none!important}.question{background:#f7f9fc;border:1px solid var(--line);border-radius:12px;padding:10px 13px;margin:8px 0}.question label{display:block;margin-bottom:5px}.choices{display:flex;gap:16px}.choices label{display:flex;align-items:center;gap:5px;color:#34445a}
 .notice{padding:12px;border-radius:12px;margin:12px 0;background:#eef4fb;color:#344d6b;border:1px solid #cbdced}.result{font-weight:bold;padding:12px;border-radius:12px;margin:12px 0}.ok{background:#e1f5ec;color:#126746;border:1px solid #a8ddc5}.bad{background:#fde8eb;color:#a9273d;border:1px solid #efb8c1}
@@ -64,7 +65,7 @@ button,input,select,textarea{touch-action:manipulation}
 <div class="field"><label>ایمیل</label><input id="authEmail" type="email" autocomplete="username" placeholder="ایمیل ثبت‌شده در Supabase"></div>
 <div class="field" style="margin-top:10px"><label>رمز عبور</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="رمز عبور"></div>
 <div class="actions"><button id="loginBtn">ورود</button><button type="button" class="secondary" id="forgotPasswordBtn">فراموشی رمز عبور</button><button class="secondary" id="logoutBtn" style="display:none">خروج</button></div>
-<div id="recoveryPanel" class="panel hidden" style="margin-top:16px;background:#f7fbf8">
+<div id="recoveryPanel" class="panel hidden" style="margin-top:16px;background:#f5f6f7">
 <h3>تعیین رمز عبور جدید</h3>
 <div class="field"><label>رمز عبور جدید</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8" placeholder="حداقل ۸ کاراکتر"></div>
 <div class="field" style="margin-top:10px"><label>تکرار رمز عبور جدید</label><input id="confirmNewPassword" type="password" autocomplete="new-password" minlength="8" placeholder="رمز را دوباره وارد کن"></div>
@@ -195,13 +196,32 @@ function actualRR(t){return Number(t.risk)>0?Number(t.pnl)/Number(t.risk):0}
 // تاریخ‌ها در داده‌ها به‌صورت میلادی استاندارد ذخیره می‌شوند، اما نمایش و ورود همگی شمسی است.
 const faDateFmt=new Intl.DateTimeFormat('en-u-ca-persian-nu-latn',{year:'numeric',month:'2-digit',day:'2-digit',timeZone:'UTC'});
 function isoToJalali(iso){if(!iso)return '';let d=new Date(iso+'T12:00:00Z');let p=Object.fromEntries(faDateFmt.formatToParts(d).filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));return `${p.year}/${p.month}/${p.day}`;}
-function jalaliToISO(v){if(!v)return '';let m=String(v).trim().match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);if(!m)return null;let jy=+m[1],jm=+m[2],jd=+m[3];if(jm<1||jm>12||jd<1||jd>31)return null;
+function normalizeDigits(v){return String(v).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));}
+function jalaliToISO(v){if(!v)return '';v=normalizeDigits(v);let m=String(v).trim().match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);if(!m)return null;let jy=+m[1],jm=+m[2],jd=+m[3];if(jm<1||jm>12||jd<1||jd>31)return null;
  let start=Date.UTC(jy+621,0,1),end=Date.UTC(jy+623,0,1);
  for(let t=start;t<end;t+=86400000){let d=new Date(t),p=Object.fromEntries(faDateFmt.formatToParts(d).filter(x=>x.type!=='literal').map(x=>[x.type,+x.value]));if(p.year===jy&&p.month===jm&&p.day===jd)return d.toISOString().slice(0,10);}return null;}
 function getDate(id){let el=$(id);if(!el.value.trim())return '';let iso=jalaliToISO(el.value);if(!iso){el.setCustomValidity('تاریخ شمسی را به شکل ۱۴۰۵/۰۸/۱۰ وارد کنید.');return null;}el.setCustomValidity('');el.dataset.iso=iso;return iso;}
 function setDate(id,iso){let el=$(id);el.value=isoToJalali(iso||'');el.dataset.iso=iso||'';el.setCustomValidity('');}
 function formatDate(iso){return isoToJalali(iso)||'—';}
 document.querySelectorAll('input[placeholder="۱۴۰۵/۰۸/۱۰"]').forEach(el=>{el.addEventListener('change',()=>{let v=getDate(el.id);if(v===null)el.reportValidity();});});
+// تقویم شمسی برای تمام فیلدهای تاریخ؛ تایپ دستی همچنان فعال است.
+const jalaliMonthFmt=new Intl.DateTimeFormat('fa-IR-u-ca-persian',{month:'long',timeZone:'UTC'});
+const jalaliWeekFmt=new Intl.DateTimeFormat('fa-IR',{weekday:'short',timeZone:'UTC'});
+let activeCalendar=null;
+function jalaliParts(iso){let d=new Date(iso+'T12:00:00Z');let a=Object.fromEntries(faDateFmt.formatToParts(d).filter(x=>x.type!=='literal').map(x=>[x.type,+x.value]));return a;}
+function currentJalali(){return jalaliParts(new Date().toISOString().slice(0,10));}
+function monthDays(y,m){let n=0;for(let d=1;d<=31;d++){if(jalaliToISO(`${y}/${m}/${d}`))n=d;else break;}return n;}
+function closeCalendar(){document.querySelector('.jalali-calendar')?.remove();activeCalendar=null;}
+function openCalendar(input,button){closeCalendar();let v=normalizeDigits(input.value.trim()),m=v.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/),todayParts=currentJalali();let state={input,button,y:m?+m[1]:todayParts.year,mo:m?+m[2]:todayParts.month};activeCalendar=state;renderCalendar();}
+function renderCalendar(){if(!activeCalendar)return;document.querySelector('.jalali-calendar')?.remove();let {input,button,y,mo}=activeCalendar;let pop=document.createElement('div');pop.className='jalali-calendar';pop.setAttribute('role','dialog');pop.setAttribute('aria-label','انتخاب تاریخ شمسی');let first=jalaliToISO(`${y}/${mo}/1`),firstDay=first?(new Date(first+'T12:00:00Z').getUTCDay()+1)%7:0;let days=monthDays(y,mo),selected=normalizeDigits(input.value).match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);let todayIso=new Date().toISOString().slice(0,10);let monthName=first?jalaliMonthFmt.format(new Date(first+'T12:00:00Z')):'';
+let html=`<div class="jalali-cal-head"><button type="button" class="jalali-cal-nav" data-cal="prev" aria-label="ماه قبل">‹</button><strong>${monthName} ${y}</strong><button type="button" class="jalali-cal-nav" data-cal="next" aria-label="ماه بعد">›</button></div><div class="jalali-cal-grid">${['ش','ی','د','س','چ','پ','ج'].map(x=>`<div class="jalali-cal-week">${x}</div>`).join('')}`;
+for(let i=0;i<42;i++){let d=i-firstDay+1;if(d<1||d>days)html+='<span></span>';else{let iso=jalaliToISO(`${y}/${mo}/${d}`),sel=selected&&+selected[1]===y&&+selected[2]===mo&&+selected[3]===d;html+=`<button type="button" class="jalali-cal-day${sel?' selected':''}${iso===todayIso?' today':''}" data-day="${d}">${String(d).padStart(2,'0')}</button>`;}}
+html+=`</div><div class="jalali-cal-foot"><button type="button" class="secondary" data-cal="today">امروز</button><button type="button" class="secondary" data-cal="close">بستن</button></div>`;pop.innerHTML=html;document.body.appendChild(pop);
+let rect=button.getBoundingClientRect(),left=Math.max(12,Math.min(rect.left,innerWidth-pop.offsetWidth-12)),top=rect.bottom+6;if(top+pop.offsetHeight>innerHeight-12)top=Math.max(12,rect.top-pop.offsetHeight-6);pop.style.left=left+'px';pop.style.top=top+'px';
+pop.addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.cal==='prev'||b.dataset.cal==='next'){let delta=b.dataset.cal==='prev'?-1:1;activeCalendar.mo+=delta;if(activeCalendar.mo<1){activeCalendar.mo=12;activeCalendar.y--}if(activeCalendar.mo>12){activeCalendar.mo=1;activeCalendar.y++}renderCalendar();}else if(b.dataset.cal==='today'){let t=currentJalali();activeCalendar.y=t.year;activeCalendar.mo=t.month;chooseCalendarDay(t.day);}else if(b.dataset.cal==='close')closeCalendar();else if(b.dataset.day)chooseCalendarDay(+b.dataset.day);});}
+function chooseCalendarDay(day){let {input,y,mo}=activeCalendar;let value=`${y}/${String(mo).padStart(2,'0')}/${String(day).padStart(2,'0')}`;input.value=value;let iso=jalaliToISO(value);input.dataset.iso=iso||'';input.setCustomValidity('');input.dispatchEvent(new Event('change',{bubbles:true}));closeCalendar();}
+document.querySelectorAll('input[placeholder="۱۴۰۵/۰۸/۱۰"]').forEach(input=>{let wrap=document.createElement('div');wrap.className='date-input-wrap';input.parentNode.insertBefore(wrap,input);wrap.appendChild(input);let btn=document.createElement('button');btn.type='button';btn.className='date-open-btn';btn.innerHTML='▦';btn.title='انتخاب از تقویم شمسی';btn.setAttribute('aria-label','باز کردن تقویم شمسی');wrap.appendChild(btn);btn.addEventListener('click',()=>openCalendar(input,btn));input.addEventListener('focus',()=>{ /* ورود دستی حفظ می‌شود؛ تقویم با دکمه باز می‌شود */ });input.addEventListener('change',()=>{let v=getDate(input.id);if(v===null)input.reportValidity();});});
+document.addEventListener('pointerdown',e=>{if(activeCalendar&&!e.target.closest('.jalali-calendar')&&!e.target.closest('.date-open-btn'))closeCalendar();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCalendar();});
 function durationFromTimes(){let d1=getDate('entryDate'),d2=getDate('exitDate'),t1=$('entryTime').value,t2=$('exitTime').value;if(d1&&d2&&t1&&t2){let a=new Date(d1+'T'+t1),b=new Date(d2+'T'+t2);let m=Math.round((b-a)/60000);if(m>=0){$('duration').value=m;return true}}return false}
 function updatePreview(){let base=Number(db.settings.baseVolume)||0,r=Number($('risk').value),p=Number($('pnl').value);$('calcPreview').textContent=base>0&&r>0?`حجم مبنای این معامله: ${money(base)} | درصد ریسک: ${pct(r/base*100)} | درصد سود/زیان: ${pct(p/base*100)} | RR واقعی: ${fmt(p/r)}`:'برای محاسبه، ریسک و سود/زیان را وارد کن.'}
 const longQs=[
